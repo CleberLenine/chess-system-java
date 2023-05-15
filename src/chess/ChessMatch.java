@@ -59,8 +59,6 @@ public class ChessMatch {
 		return promoted;
 	}
 	
-	//////////////////////////////////////////////////////////////////////////
-	
 	public ChessPiece[][] getPieces() {
 		ChessPiece[][] mat = new ChessPiece[board.getRows()][board.getColumns()];
 		for (int i=0; i<board.getRows(); i++) {
@@ -94,7 +92,7 @@ public class ChessMatch {
 		// #specialmove promotion
 		promoted = null;
 		if (movedPiece instanceof Pawn) {
-			if ((movedPiece.getColor() == Color.WHITE && target.getRow() == 0 || movedPiece.getColor() == Color.BLACK && target.getRow() == 7)) {
+			if ((movedPiece.getColor() == Color.WHITE && target.getRow() == 0) || (movedPiece.getColor() == Color.BLACK && target.getRow() == 7)) {
 				promoted = (ChessPiece)board.piece(target);
 				promoted = replacePromotedPiece("Q");
 			}
@@ -141,9 +139,9 @@ public class ChessMatch {
 	}
 	
 	private ChessPiece newPiece(String type, Color color) {
-		if (type.equals("B")) return new Bishop(board, color);
-		if (type.equals("N")) return new Knight(board, color);
-		if (type.equals("Q")) return new Queen(board, color);
+		if (type.equals("B") || type.equals("b")) return new Bishop(board, color);
+		if (type.equals("N") || type.equals("n")) return new Knight(board, color);
+		if (type.equals("Q") || type.equals("q")) return new Queen(board, color);
 		return new Rook(board, color);
 		}
 	
