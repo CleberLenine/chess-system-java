@@ -25,7 +25,7 @@ public class ChessPosition {
 
 	///////////////////////////////////////////////////
 	
-	protected Position toPosition() {
+	protected Position toPosition() {  //retorna a posição de (exemplo) 'a1' para a posição de matriz 'i7, j0'
 		return new Position(8 - row, column - 'a'); 
 	}
 	
